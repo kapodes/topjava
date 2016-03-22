@@ -10,7 +10,7 @@ import java.util.Set;
  * User: gkislin
  * Date: 22.08.2014
  */
-public class User extends NamedEntity {
+public class User extends NamedEntity implements Comparable<User> {
 
     protected String email;
 
@@ -94,5 +94,10 @@ public class User extends NamedEntity {
                 ", roles=" + roles +
                 ", caloriesPerDay=" + caloriesPerDay +
                 ')';
+    }
+
+    @Override
+    public int compareTo(User otherUser) {
+        return name.compareTo(otherUser.name);
     }
 }

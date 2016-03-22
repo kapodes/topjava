@@ -16,4 +16,6 @@ public interface UserMealRepository {
     UserMeal get(int id);
 
     Collection<UserMeal> getAll();
+
+    Collection<UserMeal> getAllUsersMeal(int userId);
 }

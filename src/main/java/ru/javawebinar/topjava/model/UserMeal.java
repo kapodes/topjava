@@ -6,8 +6,10 @@ import java.time.LocalDateTime;
  * GKislin
  * 11.01.2015.
  */
-public class UserMeal {
+public class UserMeal extends BaseEntity implements Comparable<UserMeal> {
     private Integer id;
+
+    private Integer userId;
 
     private final LocalDateTime dateTime;
 
@@ -30,6 +32,14 @@ public class UserMeal {
         this.id = id;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public LocalDateTime getDateTime() {
         return dateTime;
     }
@@ -48,6 +58,11 @@ public class UserMeal {
 
     public boolean isNew() {
         return id == null;
+    }
+
+    @Override
+    public int compareTo(UserMeal other) {
+        return dateTime.compareTo(other.dateTime);
     }
 
     @Override
